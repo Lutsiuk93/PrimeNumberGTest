@@ -1,0 +1,36 @@
+{
+  "version": 3,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 20,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "VS2019v142-Base",
+      "displayName": "Visual Studio 2019 14.26",
+      "description": "Generate project for Visual Studio 2019 using 14.26 toolset",
+      "hidden": true,
+      "generator": "Visual Studio 16 2019",
+      "architecture": "x64",
+      "binaryDir": "${sourceDir}/bin/x64/"
+    },
+    {
+      "name": "VS2019v142-Debug",
+      "inherits": "VS2019v142-Base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_CXX_FLAGS_DEBUG": "/MDd /Zi /Ob0 /Od /RTC1 /D_DEBUG"
+
+      }
+    },
+    {
+      "name": "VS2019v142-Release",
+      "inherits": "VS2019v142-Base",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Release",
+        "CMAKE_CXX_FLAGS_RELEASE": "/MD /O2 /Ob2 /GL /Zo /DNDEBUG"
+      }
+    }
+  ]
+}
